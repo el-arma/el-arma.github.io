@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beginner's Guide to Async IO in Python</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 40px auto;
+            max-width: 900px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        /* Links */
+        a {
+            color: #007acc; /* Python Blue */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+
+        code {
+            font-family: Consolas, monospace;
+        }
+        .note {
+            background: #f9f9c5;
+            padding: 10px;
+            border-left: 5px solid #f1c40f;
+            margin: 10px 0;
+        }
+
+        .styled-img {
+            border-radius: 10px; 
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 70%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <img src="graphic1.jpg" alt="Async IO in Python" class="styled-img" />
+    <h1>Beginner's Guide to Async IO in Python</h1>
+    <p><strong>Author:</strong> Jimmy AI</p>
+    <p><strong>Last Updated:</strong> February 2025</p>
+
+    <h2>What is Async IO?</h2>
+    <p>Async IO (Asynchronous Input/Output) in Python allows for non-blocking code execution. This means your program can handle multiple tasks at the same time instead of waiting for each task to complete sequentially.</p>
+
+    <div class="note">
+        <strong>Note:</strong> Async IO is useful for tasks like making multiple web requests, handling file operations, or working with databases without blocking the execution.
+    </div>
+
+    <h2>Why Use Async IO?</h2>
+    <ul>
+        <li>Efficiently handles multiple I/O-bound operations.</li>
+        <li>Improves performance in network-related tasks.</li>
+        <li>Prevents program freezing when waiting for responses.</li>
+    </ul>
+
+    <h2>Basic Async IO Example</h2>
+    <p>Here’s a simple example using Python’s <code>asyncio</code> module:</p>
+
+    <pre><code>import asyncio
+
+async def say_hello():
+    print("Hello")
+    await asyncio.sleep(2)  # Simulates a delay (e.g., network request)
+    print("World!")
+
+async def main():
+    await say_hello()
+
+asyncio.run(main())</code></pre>
+
+    <h2>Breaking Down the Code</h2>
+    <ul>
+        <li><code>async def</code>: Defines an asynchronous function.</li>
+        <li><code>await</code>: Pauses execution until the awaited function completes.</li>
+        <li><code>asyncio.run(main())</code>: Runs the asynchronous event loop.</li>
+    </ul>
+
+    <h2>Running Multiple Tasks</h2>
+    <p>Use <code>asyncio.gather()</code> to run multiple tasks concurrently:</p>
+
+    <pre><code>import asyncio
+
+async def task_1():
+    await asyncio.sleep(2)
+    print("Task 1 Done")
+
+async def task_2():
+    await asyncio.sleep(1)
+    print("Task 2 Done")
+
+async def main():
+    await asyncio.gather(task_1(), task_2())
+
+asyncio.run(main())</code></pre>
+
+    <h2>When to Use Async IO</h2>
+    <ul>
+        <li>When handling multiple network requests (APIs, scraping).</li>
+        <li>For database queries that don’t need to block execution.</li>
+        <li>Streaming large files over a network.</li>
+    </ul>
+
+    <h2>When Not to Use Async IO</h2>
+    <ul>
+        <li>For CPU-intensive tasks (use multiprocessing instead).</li>
+        <li>For simple scripts that don’t need concurrency.</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>Async IO is a powerful tool for improving performance in I/O-bound applications. By understanding <code>async</code>, <code>await</code>, and <code>asyncio</code>, you can write efficient, non-blocking Python programs.</p>
+
+    <h2>Additional Resources</h2>
+    <p>Here are some useful videos to deepen your understanding of Async IO in Python:</p>
+    
+    <h3>📺 Video Tutorials</h3>
+    <ul>
+       
+        <li><a href="https://www.youtube.com/watch?v=t5Bo1Je9EmE" target="_blank">🔗 Python Asynchronous Programming - AsyncIO & Async/Await (Tech With Tim)</a></li>
+        <li><a href="https://www.youtube.com/watch?v=6RbJYN7SoRs" target="_blank">🔗 AsyncIO & Asynchronous Programming in Python (NeuralNine)</a></li>
+        <li><a href="https://www.youtube.com/watch?v=K56nNuBEd0c" target="_blank">🔗 AsyncIO, await, and async - Concurrency in Python (Socratica)</a></li>
+       
+    </ul>
+    
+    <h3>📖 Articles & Documentation</h3>
+
+   <ul>
+        <li><a href="https://realpython.com/async-io-python/" target="_blank">🔗 Async IO in Python: A Complete Walkthrough (Real Python)</a></li>
+        <li><a href="https://docs.python.org/3/library/asyncio.html" target="_blank">🔗 Official Python AsyncIO Documentation</a></li>
+    </ul>
+    
+    <p>Happy coding! 🚀</p>
+
+</body>
+</html>
